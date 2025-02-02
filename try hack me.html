@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Results Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
+        .home-content {
+            display: none;
+            text-align: center;
+        }
+        .results {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div class="container" id="loginFormContainer">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="name" class="input-field" placeholder="Enter your name" required>
+            <input type="password" id="password" class="input-field" placeholder="Enter your password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <!-- Home Page (School Results Portal) -->
+    <div class="home-content" id="homeContent">
+        <h2>Welcome to the School Results Portal</h2>
+        <div class="results">
+            <p>Here are your results:</p>
+            <ul>
+                <li>Mathematics: A</li>
+                <li>Science: B+</li>
+                <li>English: A-</li>
+                <li>History: B</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Listen for form submit
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get the entered name and password
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+
+            // Dummy check for valid credentials
+            if (name === 'student' && password === 'password123') {
+                // Hide login form and show home page content
+                document.getElementById('loginFormContainer').style.display = 'none';
+                document.getElementById('homeContent').style.display = 'block';
+            } else {
+                // Show error message if credentials are incorrect
+                document.getElementById('errorMessage').textContent = 'Invalid name or password';
+            }
+        });
+    </script>
+
+</body>
+</html>
